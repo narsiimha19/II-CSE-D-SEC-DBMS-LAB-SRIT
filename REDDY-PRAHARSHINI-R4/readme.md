@@ -1,4 +1,4 @@
-#create a tables
+#create a table
 ```
 CREATE TABLE student(
 Name VARCHAR2(40),
@@ -25,4 +25,4 @@ Section_identifier NUMBER,
 Grade VARCHAR2(5)
 );
 ```
-![output](op-1.png)
+![output](op-2.png)
