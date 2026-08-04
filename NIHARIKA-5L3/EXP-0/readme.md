@@ -5,4 +5,4 @@ SELECT * FROM tab;
 SELECT * FROM student;
 
 ```
-![output 1](output1.PNG)
+![output 1](output1.png)
