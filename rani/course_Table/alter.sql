@@ -1,0 +1,3 @@
+ALTER TABLE COURSE
+RENAME COLUMN Course_number TO cid;
+DESC course;
