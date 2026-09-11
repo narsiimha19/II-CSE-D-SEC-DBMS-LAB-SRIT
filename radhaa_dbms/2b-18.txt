@@ -1,7 +1,0 @@
---Find the sailors wuth the highest rating
-SELECT *
-FROM Sailors
-WHERE rating = (
-    SELECT MAX(rating)
-    FROM Sailors
-);
