@@ -1,4 +1,4 @@
-# (3a ) 1.Display employee ID, first name and hire date in DD-MON-YYYY format.
+### (3a ) 1.Display employee ID, first name and hire date in DD-MON-YYYY format.
 
 ```
 SELECT employee_id, first_name,
