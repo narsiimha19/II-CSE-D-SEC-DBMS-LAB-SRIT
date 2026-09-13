@@ -1,0 +1,7 @@
+INSERT INTO COURSE VALUES('Intro to Computer Science','CS1310',4,'CS');
+
+INSERT INTO COURSE VALUES('Data Structures','CS3320',4,'CS');
+
+INSERT INTO COURSE VALUES('Discrete Mathematics','MATH2410',3,'MATH');
+
+INSERT INTO COURSE VALUES('Database','CS3380',3,'CS');
