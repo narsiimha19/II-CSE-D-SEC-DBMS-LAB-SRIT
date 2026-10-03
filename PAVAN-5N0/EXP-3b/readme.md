@@ -1,0 +1,242 @@
+# 3B Q1. Create EMP_VIEW displaying all columns
+```
+```
+```
+CREATE VIEW EMP_VIEW AS
+SELECT *
+FROM EMPLOYEES;
+```
+![OUTPUT](1.jpeg)
+```
+# Q2. Create EMP_BASIC
+```
+```
+CREATE VIEW EMP_BASICS AS
+SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, DEPARTMENT, SALARY
+FROM EMPLOYEES;
+```
+![OUTPUT](2.jpeg)
+```
+# Q3. Display all records from EMP_VIEW
+```
+```
+SELECT *
+FROM EMP_VIEW;
+```
+![OUTPUT](3.jpeg)
+```
+# Q4. Create IT_EMPLOYEES
+```
+```
+CREATE VIEW IT_EMPLOYEES AS
+SELECT *
+FROM EMPLOYEES
+WHERE DEPARTMENT = 'IT';
+```
+![OUTPUT](4.jpeg)
+```
+# Q5. Create HIGH_SALARY
+```
+```
+CREATE VIEW HIGH_SALARY AS
+SELECT *
+FROM EMPLOYEES
+WHERE SALARY > 60000;
+```
+![OUTPUT](5.jpeg)
+```
+# Q6. Create HYDERABAD_EMP
+```
+```
+CREATE VIEW HYDERABAD_EMP AS
+SELECT *
+FROM EMPLOYEES
+WHERE CITY = 'Hyderabad';
+```
+![OUTPUT](6.jpeg)
+```
+# Q7. Create FEMALE_EMP
+```
+```
+CREATE VIEW FEMALE_EMP AS
+SELECT *
+FROM EMPLOYEES
+WHERE GENDER = 'Female';
+```
+![OUTPUT](7.jpeg)
+```
+# Q8. Create RECENT_EMPLOYEES
+```
+```
+CREATE VIEW RECENT_EMPLOYEES AS
+SELECT *
+FROM EMPLOYEES
+WHERE HIRE_DATE >= DATE '2020-01-01';
+```
+![OUTPUT](8.jpeg)
+```
+# Q9. Display Employee ID, First Name and Salary from HIGH_SALARY
+```
+```
+SELECT EMPLOYEE_ID, FIRST_NAME, SALARY
+FROM HIGH_SALARY;
+```
+![OUTPUT](9.jpeg)
+```
+# Q10. Replace EMP_BASIC by adding CITY
+```
+```
+CREATE OR REPLACE VIEW EMP_BASIC AS
+SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
+       DEPARTMENT, SALARY, CITY
+FROM EMPLOYEES;
+```
+![OUTPUT](10.jpeg)
+```
+# Q11. Create read-only EMP_SALARY_VIEW
+```
+```
+CREATE VIEW EMP_SALARY_VIEW AS
+SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY
+FROM EMPLOYEES
+WITH READ ONLY;
+```
+![OUTPUT](11.jpeg)
+```
+# Q12. Create SALES_EMP with CHECK OPTION
+```
+```
+CREATE VIEW SALES_EMP AS
+SELECT *
+FROM EMPLOYEES
+WHERE DEPARTMENT = 'Sales'
+WITH CHECK OPTION;
+```
+![OUTPUT](12.jpeg)
+```
+# Q13. Update salary of employee 101 through EMP_BASIC
+```
+```
+UPDATE EMP_BASIC
+SET SALARY = 70000
+WHERE EMPLOYEE_ID = 101;
+```
+![OUTPUT](13.jpeg)
+```
+# Q14. Delete employee 107 through EMP_VIEW
+```
+```
+DELETE FROM EMP_VIEW
+WHERE EMPLOYEE_ID = 107;
+```
+![OUTPUT](14.jpeg)
+```
+```
+```
+INSERT INTO EMP_BASIC
+(EMPLOYEE_ID, FIRST_NAME, LAST_NAME, DEPARTMENT, SALARY, CITY)
+VALUES
+(111, 'Neha', 'Reddy', 'IT', 65000, 'Hyderabad');
+```
+![OUTPUT](15.jpeg)
+```
+# Q16. Display structure of EMP_BASIC
+```
+```
+DESC EMP_BASIC;
+```
+![OUTPUT](16.jpeg)
+```
+# Q17. Display all records from IT_EMPLOYEES
+```
+```
+SELECT *
+FROM IT_EMPLOYEES;
+```
+![OUTPUT](17.jpeg)
+```
+# Q18. Display employees from HIGH_SALARY whose salary > 70000
+```
+```
+SELECT *
+FROM HIGH_SALARY
+WHERE SALARY > 70000;
+```
+![OUTPUT](18.jpeg)
+# Q19. Display all female employees
+```
+```
+SELECT *
+FROM FEMALE_EMP;
+```
+![OUTPUT](19.jpeg)
+```
+# Q20. Display names and salaries from HYDERABAD_EMP
+```
+```
+SELECT FIRST_NAME, LAST_NAME, SALARY
+FROM HYDERABAD_EMP;
+```
+![OUTPUT](20.jpeg)
+```
+# Q21. Drop EMP_VIEW
+```
+```
+DROP VIEW EMP_VIEW;
+```
+![OUTPUT](21.jpeg)
+```
+# Q22. Drop HIGH_SALARY
+```
+```
+DROP VIEW HIGH_SALARY;
+```
+![OUTPUT](22.jpeg)
+```
+# Q23. Drop EMP_BASIC
+```
+```
+DROP VIEW EMP_BASIC;
+```
+![OUTPUT](23.jpeg)
+```
+# Q24. Create HR_EMPLOYEES
+```
+```
+CREATE VIEW HR_EMPLOYEES AS
+SELECT *
+FROM EMPLOYEES
+WHERE DEPARTMENT = 'HR';
+```
+![OUTPUT](24.jpeg)
+```
+# Q25. Create MARKETING_EMP
+```
+```
+CREATE VIEW MARKETING_EMP AS
+SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
+       DEPARTMENT, SALARY
+FROM EMPLOYEES
+WHERE DEPARTMENT = 'Marketing';
+```
+![OUTPUT](25.jpeg)
+```
+# Q26. Create TOP_EARNERS
+```
+```
+CREATE VIEW TOP_EARNERS AS
+SELECT *
+FROM EMPLOYEES
+WHERE SALARY > 70000;
+```
+![OUTPUT](26.jpeg)
+```
+# Q27. Create EMP_CITY
+```
+```
+CREATE VIEW EMP_CITY AS
+SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, CITY
+FROM EMPLOYEES;
+```
+![OUTPUT](27.jpeg)
+``````
