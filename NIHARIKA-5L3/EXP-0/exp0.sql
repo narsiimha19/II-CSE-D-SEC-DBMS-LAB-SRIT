@@ -1,0 +1,3 @@
+SHOW USER;
+SELECT * FROM tab;
+SELECT * FROM student;
