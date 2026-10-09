@@ -1,0 +1,80 @@
+# (2) 1.Create the employee table
+```
+CREATE TABLE employee (
+    employee_id   NUMBER(5) PRIMARY KEY,
+    employee_name VARCHAR2(50),
+    department    VARCHAR2(30),
+    monthly_salary NUMBER(10,2)
+);
+```
+![output](a2a.png)
+# (2) 2.Insert sample employee records
+```
+INSERT INTO employee VALUES (101, 'Ravi',   'CSE', 25000);
+INSERT INTO employee VALUES (102, 'Sita',   'ECE', 30000);
+INSERT INTO employee VALUES (103, 'Kiran',  'EEE', 35000);
+INSERT INTO employee VALUES (104, 'Anjali', 'CSE', 40000);
+INSERT INTO employee VALUES (105, 'Rahul',  'IT',  45000);
+
+COMMIT;
+```
+![output](a2b.png)
+# (2) 3.Verify the records
+```
+SELECT * FROM employee;
+```
+![output](a2c.png)
+# (2) 4.Create the stored function
+```
+CREATE OR REPLACE FUNCTION calculate_annual_salary (
+    p_monthly_salary IN NUMBER
+)
+RETURN NUMBER
+IS
+    v_annual_salary NUMBER;
+BEGIN
+    v_annual_salary := p_monthly_salary * 12;
+
+    RETURN v_annual_salary;
+END;
+```
+![output](a2d.png)
+# (2) 5.Check the function valid or not
+```
+SELECT object_name, status
+FROM user_objects
+WHERE object_name = 'CALCULATE_ANNUAL_SALARY';
+```
+![output](a2e.png)
+# (2) 6.Invoke the function using a select statement
+```
+
+SELECT employee_id,
+       employee_name,
+       department,
+       monthly_salary,
+       calculate_annual_salary(monthly_salary) AS annual_salary
+FROM employee;
+```
+![output](a2f.png)
+# (2) 7.Invoke the function using PL/SQL code
+```
+SET SERVEROUTPUT ON;
+
+DECLARE
+    v_monthly_salary employee.monthly_salary%TYPE;
+    v_annual_salary  NUMBER;
+BEGIN
+    SELECT monthly_salary
+    INTO v_monthly_salary
+    FROM employee
+    WHERE employee_id = 101;
+
+    v_annual_salary := calculate_annual_salary(v_monthly_salary);
+
+    DBMS_OUTPUT.PUT_LINE('Employee ID     : 101');
+    DBMS_OUTPUT.PUT_LINE('Monthly Salary  : ' || v_monthly_salary);
+    DBMS_OUTPUT.PUT_LINE('Annual Salary   : ' || v_annual_salary);
+END;
+```
+![output](a2g.png)
