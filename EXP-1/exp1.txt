@@ -1,0 +1,189 @@
+ # (1b) 1.Implement the tables using above constraints 
+```
+-- 1. Implement the tables using constraints
+
+CREATE TABLE Student (
+    Student_number NUMBER PRIMARY KEY,
+    Name VARCHAR2(30),
+    Class VARCHAR2(20),
+    Major VARCHAR2(20),
+    Branch VARCHAR2(20)
+);
+
+CREATE TABLE Course (
+    Course_number VARCHAR2(10) PRIMARY KEY,
+    Course_name VARCHAR2(50),
+    Credit_hrs NUMBER NOT NULL,
+    Department VARCHAR2(30)
+);
+
+CREATE TABLE Section (
+    Section_identifier NUMBER PRIMARY KEY,
+    Course_number VARCHAR2(10),
+    Semester VARCHAR2(20) NOT NULL,
+    Year NUMBER,
+    Instructor VARCHAR2(30),
+    FOREIGN KEY (Course_number) REFERENCES Course(Course_number)
+);
+
+CREATE TABLE Grade_report (
+    Student_number NUMBER,
+    Section_identifier NUMBER,
+    Grade VARCHAR2(2) NOT NULL,
+    PRIMARY KEY (Student_number, Section_identifier),
+    FOREIGN KEY (Student_number) REFERENCES Student(Student_number),
+    FOREIGN KEY (Section_identifier) REFERENCES Section(Section_identifier)
+);
+
+CREATE TABLE Prerequisite (
+    Course_number VARCHAR2(10),
+    Prerequisite_number VARCHAR2(10),
+    PRIMARY KEY (Course_number, Prerequisite_number),
+    FOREIGN KEY (Course_number) REFERENCES Course(Course_number)
+);
+```
+![output] (1b_1.png)
+
+ # (1b) 2.Display the discription of each tables
+```
+ 
+DESC Student;
+DESC Course;
+DESC Section;
+DESC Grade_report;
+DESC Prerequisite;
+```
+![output](1b_2.png)
+ 
+ # (1b) 3.insert the values specified by the above database
+```
+INSERT INTO Student VALUES
+(1, 'John', 'Senior', 'CSE', 'CSE');
+
+INSERT INTO Course VALUES
+('C101', 'Database Systems', 3, 'CSE');
+
+INSERT INTO Section VALUES
+(1, 'C101', 'Fall', 2026, 'Ramesh');
+
+INSERT INTO Grade_report VALUES
+(1, 1, 'A');
+
+INSERT INTO Prerequisite VALUES
+('C101', 'C100');
+
+COMMIT;
+```
+![output](1b_3.png)
+
+ # (1b) 4.display the instances of each table in the database
+```
+SELECT * FROM Student;
+SELECT * FROM Course;
+SELECT * FROM Section;
+SELECT * FROM Grade_report;
+SELECT * FROM Prerequisite;
+```
+![output](1b_4.png)
+
+ # (1b) 5.all branch attribute in student table and describe the table
+```
+SELECT Branch FROM Student;
+
+DESC Student;
+```
+![output](1b_5.png)
+
+ # (1b) 6.copy major attribute values into branch attribute and display it
+```
+UPDATE Student
+SET Branch = Major;
+
+SELECT Branch FROM Student;
+```
+![output](1b_6.png)
+ 
+ # (1b) 7.remove the major attributein student
+```
+ALTER TABLE Student
+DROP COLUMN Major;
+```
+![output](1b_7.png)
+ 
+ # (1b) 8.change the name of course_number to cid in course ad describe it
+```
+ALTER TABLE Course
+RENAME COLUMN Course_number TO CID;
+
+DESC Course;
+```
+![output](1b_8.png)
+
+ # (1b) 9.change the value of credit-hrs of database to 4 in course
+```
+UPDATE Course
+SET Credit_hrs = 4;
+
+SELECT * FROM Course;
+```
+![output](1b_9.png)
+
+ # (1b) 10.put NOT NULL CONSTRAINT to column branch in student
+```
+ALTER TABLE Student
+MODIFY Branch VARCHAR2(20) NOT NULL;
+```
+![output](1b_10.png)
+
+ # (1b) 11.Replace the student table name to pupil
+```
+ALTER TABLE Student
+RENAME TO Pupil;
+```
+![output](1b_11.png)
+
+ # (1b) 12.remove the student table
+```
+DROP TABLE Pupil;
+```
+![output](1b_12.png)
+
+ # (1b) 13.remove the rows of 'Fall'semester in section
+```
+DELETE FROM Section
+WHERE Semester = 'Fall';
+```
+![output](1b_13.png)
+
+ # (1b) 14.remove the row of 'Data_structure'in course
+```
+DELETE FROM Course
+WHERE Course_name = 'Data structure';
+```
+![output](1b_14.png)
+
+ # (1b) 15.remove all rows in all tablets using TRUNCATE table
+```
+TRUNCATE TABLE Grade_report;
+TRUNCATE TABLE Prerequisite;
+TRUNCATE TABLE Section;
+TRUNCATE TABLE Course;
+TRUNCATE TABLE PUPIL;
+```
+![output](1b_15.png)
+
+ # (1b) 16.remove pupil,course and section table so that it exist in recycle bin
+```
+DROP TABLE Pupil;
+DROP TABLE Course;
+DROP TABLE Section;
+SHOW RECYCLEBIN;
+```
+![output](1b_16.png)
+
+ # (1b) 17.remove grade_report & prerequisites table permanently
+```
+DROP TABLE Grade_report PURGE;
+DROP TABLE Prerequisite PURGE;
+```
+![output](1b_17.png)
