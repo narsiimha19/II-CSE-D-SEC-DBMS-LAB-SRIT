@@ -38,7 +38,7 @@ CREATE TABLE GRADE_REPORT
 
 
 
-#(1a) 2. Insert all values inside the tables
+# (1a) 2. Insert all values inside the tables
 
 ```
 INSERT INTO STUDENT VALUES ('Smith',17,1,'CS');
@@ -76,7 +76,7 @@ INSERT INTO GRADE_REPORT VALUES (8,135,'A');
 ![output](op4.png)
 
 
-#(1a) 3.Describe all tables
+# (1a) 3.Describe all tables
 
 ```
 DESC STUDENT;
@@ -88,7 +88,7 @@ DESC GRADE_REPORT;
 ![output](op5.png)
 
 
-#(1a) 4.List the created tables
+# (1a) 4.List the created tables
 
 ```
 SELECT * FROM tab;
@@ -99,7 +99,7 @@ SELECT * FROM tab;
 
 
 
-#(1a) 5.Display the values of each tables
+# (1a) 5.Display the values of each tables
 
 ```
 SELECT * FROM STUDENT;
@@ -127,7 +127,7 @@ SELECT * FROM GRADE_REPORT;
 
 
 
-#(1a) 6.Delete all tables
+# (1a) 6.Delete all tables
 
 ```
 DROP TABLE GRADE_REPORT;
